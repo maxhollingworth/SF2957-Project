@@ -11,7 +11,7 @@ digits = datasets.load_digits()
 
 
 #choose a seed
-seed = XXXX
+seed = 42
 np.random.seed(seed)
 # Load data into train set and test set
 digits = datasets.load_digits()
@@ -19,19 +19,19 @@ X = digits.data
 y = np.array(digits.target, dtype = int)
 X,y = shuffle(X,y)
 N,d = X.shape
-Ntest = np.int(100)
-Ntrain = np.int(1697)
+Ntest = 100
+Ntrain = 1500
 Xtrain = X[0:Ntrain,:]
 ytrain = y[0:Ntrain]
-Xtest = X[Ntrain:N,:]
-ytest = y[Ntrain:N]
+Xtest = X[Ntrain+1:Ntrain+101,:]
+ytest = y[Ntrain+1:Ntrain+101]
 
 
 def svmsubgradient(Theta, x, y):
 #  Returns a subgradient of the objective empirical hinge loss
 #
 # The inputs are Theta, of size n-by-K, where K is the number of classes,
-# x of size n, and y an integer in {0, 1, ..., 9}.
+# x of size n, and y an integer in {0, 1, ..., 9}
     G = np.zeros(Theta.shape)
     ## IMPLEMENT THE SUBGRADIENT CALCULATION -- YOUR CODE HERE
 

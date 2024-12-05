@@ -5,10 +5,11 @@ from sklearn import datasets
 
 # import some data to play with
 digits = datasets.load_digits()
+print(digits[0,:])
 
 im = digits.images[1]
 print(im.shape)
-plt.gray() 
-plt.matshow(digits.images[1]) 
-plt.matshow(digits.images[2]) 
+plt.gray()
+for i in range(1,10):
+    plt.matshow(digits.images[i])
 plt.show() 
